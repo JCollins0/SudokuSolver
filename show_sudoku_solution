@@ -1,0 +1,11 @@
+#!/bin/bash
+SIZE=$1
+file=${1}puzzle.txt
+touch sudoku_input.lp
+sudoku_converter $file sudoku_input.lp
+touch out.tmp
+echo $SIZE > out.tmp
+clingo -c n=$SIZE sudoku.lp sudoku_input.lp | grep -A1 "Answer" | sed 's/spot\|(\|)//g' | grep -o "[[:digit:]]\+,[[:digit:]]\+,[[:digit:]]\+" >> out.tmp
+sudoku_display out.tmp
+rm -f out.tmp
+rm -f sudoku_input.lp
