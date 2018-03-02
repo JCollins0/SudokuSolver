@@ -1,6 +1,8 @@
 #!/bin/bash
-SIZE=$1
-file=${1}puzzle.txt
+
+file=$1
+read -d " " num < "$file"
+SIZE=$(echo "sqrt($num)" | bc)
 touch sudoku_input.lp
 sudoku_converter $file sudoku_input.lp
 touch out.tmp
