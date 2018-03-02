@@ -1,6 +1,20 @@
 # SudokuSolver
 Fast Sudoku Solver that can solve any size puzzle using CLINGO
 
+### Dependencies
+show_sudoku_solution requires:
+* clingo
+* sudoku_display
+* sudoku_converter
+
+### Compiling Binaries
+download sudoku_display.c and sudoku_converter.c and Makefile\
+run the following command to compile binaries
+```bash
+make
+```
+
+### Usage
 ```bash
 ./show_sudoku_solution <file_containing_encoded_puzzle>
 ```
